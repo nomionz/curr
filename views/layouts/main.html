@@ -1,0 +1,36 @@
+{{ block "index" . }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Currency converter</title>
+    <script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<style>
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+</style>
+<body class="dark:bg-gray-800 dark:text-white ">
+    <div class="max-w-prose md:max-w-lg mx-auto flex flex-col grid grid-cols-2 gap-2 content-center justify-items-stretch">
+
+        <h1 class="text-4xl font-bold my-20 col-span-2 text-center">Currency converter</h1>
+
+        {{ block "content" . }}
+        {{ template "input" .InputFrom }}
+        {{ template "select" .SelectFrom }}
+        {{ template "input" .InputTo }}
+        {{ template "select" .SelectTo }}
+        {{ end }}
+
+    </div>
+</body>
+</html>
+{{ end }}

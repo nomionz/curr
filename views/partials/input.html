@@ -1,0 +1,24 @@
+{{ block "input" . }}
+<input
+    id="{{ .Id }}"
+    name="{{ .Name }}"
+    type="number"
+    value="{{ .Value }}"
+    autocomplete="off"
+    placeholder="{{ .Placeholder }}"
+    class="dark:bg-gray-700 rounded-lg p-2.5 focus:outline-none focus:ring-1 focus:ring-blue-600"
+    hx-post="/convert"
+    hx-trigger="keyup delay:100ms"
+    hx-include="[name='from'], [name='to']"
+    hx-swap="outerHTML"
+    hx-target="{{ .HXTarget }}"
+/>
+<script>
+    document.getElementById("{{ .Id }}").oninput = function() {
+        if (this.value === "") {
+            document.querySelector("[name='amountFrom']").value = "";
+            document.querySelector("[name='amountTo']").value = "";
+        }
+    }
+</script>
+{{ end }}

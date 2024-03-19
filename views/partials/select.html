@@ -1,0 +1,15 @@
+{{ block "select" . }}
+<select
+    name="{{ .Name }}"
+    class="dark:bg-gray-700 rounded-lg p-2.5 focus:ring-1 focus:ring-blue-600"
+    hx-post="/convert"
+    hx-trigger="change"
+    hx-include="[name='amountFrom'], [name='amountTo'], [name='from'], [name='to']"
+    hx-swap="outerHTML"
+    hx-target="{{ .HXTarget }}"
+>
+    {{ range .Currencies }}
+    <option value="{{ . }}">{{ . }}</option>
+    {{ end }}
+</select>
+{{ end }}
