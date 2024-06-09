@@ -27,19 +27,16 @@ func (c *Client) Convert(fromS, toS, amountS string) (decimal.Decimal, error) {
 	var empty decimal.Decimal
 
 	amount, err := decimal.NewFromString(amountS)
-
 	if err != nil {
 		return empty, err
 	}
 
 	from, err := c.st.Get(fromS)
-
 	if err != nil {
 		return empty, err
 	}
 
 	to, err := c.st.Get(toS)
-
 	if err != nil {
 		return empty, err
 	}
@@ -74,7 +71,6 @@ func (c *Client) Fetch() {
 
 func (c *Client) tryFetch() error {
 	ecb, err := FetchDaily()
-
 	if err != nil {
 		return err
 	}

@@ -21,15 +21,12 @@ type Ecb struct {
 // and returns a pointer to an Ecb struct.
 func FetchDaily() (*Ecb, error) {
 	resp, err := http.Get(daily)
-
 	if err != nil {
 		return nil, err
 	}
-
 	defer resp.Body.Close()
 
-	ecb := &Ecb{}
-
+	ecb := new(Ecb)
 	if err := xml.NewDecoder(resp.Body).Decode(ecb); err != nil {
 		return nil, err
 	}

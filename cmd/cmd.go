@@ -7,10 +7,8 @@ import (
 )
 
 func RunApi() error {
-	engine := html.New("./views", ".html")
-
 	app := fiber.New(fiber.Config{
-		Views: engine,
+		Views: html.New("./views", ".html"),
 	})
 
 	api.NewServer().Router(app)

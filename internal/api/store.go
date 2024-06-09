@@ -25,7 +25,6 @@ func (m *MemStore) Get(key string) (decimal.Decimal, error) {
 	defer m.mu.RUnlock()
 
 	res, ok := m.data[key]
-
 	if !ok {
 		return decimal.Decimal{}, fmt.Errorf("key %s not found", key)
 	}
@@ -38,7 +37,6 @@ func (m *MemStore) GetKeys() []string {
 	defer m.mu.RUnlock()
 
 	keys := make([]string, 0)
-
 	for k := range m.data {
 		keys = append(keys, k)
 	}

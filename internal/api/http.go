@@ -43,7 +43,6 @@ func (s *Server) Convert(c *fiber.Ctx) error {
 	}
 
 	tag := req.GetAmountTagName()
-
 	if tag == html.AmountTo {
 		tmp := req.From
 		req.From = req.To
@@ -70,7 +69,6 @@ func (s *Server) renderInput(c *fiber.Ctx, tag, amount string) error {
 
 func (s *Server) convert(from, to, amount string) (string, error) {
 	amountDec, err := s.cli.Convert(from, to, amount)
-
 	if err != nil {
 		return "", err
 	}
