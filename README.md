@@ -25,9 +25,9 @@ This is a real-time currency converter that uses the [European Central Bank exch
     ```
 2. Run the image
     ```bash
-    docker run -p 80:80 nomionz/currency-converter
+    docker run --rm -p 80:80 nomionz/currency-converter
     ```
-3. Open your browser and go to `http://localhost:8080`
+3. Open your browser and go to `http://localhost`
 
 ## Technologies
 
